@@ -1,8 +1,7 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
 
-/*componentes*/
-import Footer from '/home/daniel/Documentos/Paginas/juego/src/componentes/Footer.js'
+
 
 const Registrarse = ({adduser}) => {
     
@@ -13,13 +12,18 @@ const Registrarse = ({adduser}) => {
 
     
       const onSubmit =(data, e)=> {
-          console.log(data);
+          //console.log(data);
+          // limpiar campos formulario
+          e.target.reset();
           adduser(data);
+          
          
 
       }
       
     return (
+    
+                        
       <div className="card" style={{height : '35%'}} >
           <div className="card-header text-center">
              <h2 className="card-title">Registrarse</h2>
@@ -121,11 +125,9 @@ const Registrarse = ({adduser}) => {
            </form>
             
          </div>
-         <div className="card-footer">
-             <Footer/>
-         </div>
+         
       </div>
-
+    
       );
 
                 }

@@ -1,7 +1,17 @@
 import React from 'react';
 
+//componentes 
+
+import Registrarse from '../Formularios/Resgistrarse';
+import Footer from '../Footer';
+import EditarUsuarios from '../Formularios/EditarUsuarios';
+
+
 const Tablauno = (props) => {
-    console.log(props.usuarios)
+    console.log(props.usuarios);
+
+   
+
    
     return (
          <div className="container">
@@ -33,9 +43,13 @@ const Tablauno = (props) => {
                      <td> {user.correo}</td>
                         <td className="d-flex md-d-flex-column mr-2">
                             
-                            <button  className="btn btn-primary" >edit</button>
+                            <button  className="btn btn-primary" onClick={()=>{props.usuarioModificado(user)} }  data-toggle="modal" data-target="#exampleModal" >Editar</button>
                             
-                            <button className="btn btn-danger ">Delete</button>
+                            <button className="btn btn-danger "
+                            onClick={()=> {props.eliminarUsuarios(user.id)}}
+                            >Eliminar
+                            
+                            </button>
                         </td>
                      </tr>)):(
                          <td> 
@@ -55,10 +69,47 @@ const Tablauno = (props) => {
                <div className="row">
                <div className="col"> 
                    
-                   <button className="btn btn-primary"> agregar usuario</button>
-                   
+               <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={()=>{props.setEdit(false)}}>
+  Registrar usuario
+</button> 
+<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Latineando</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+          { 
+          props.edit ? (
+             <EditarUsuarios 
+             adduser={props.adduser}
+             regrabarusuario={props.regrabarusuario}
+             updateUsuario={props.updateUsuario}
+             />
+          ):(
+             
+              <Registrarse 
+       adduser={props.adduser}
+       
+       />
+          )
+}
+      </div>
+      
+      <div className="modal-footer">
+          <div className="container">
+        <Footer/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
                </div>
                </div>
+              
           </div>
         
       );
