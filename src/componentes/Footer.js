@@ -1,7 +1,8 @@
-import React, { } from 'react';
+import React, {Fragment } from 'react';
 
 const Footer = () => {
     return ( 
+<Fragment> 
 
         
         <div className="row">
@@ -9,6 +10,7 @@ const Footer = () => {
                 Soy el Footer
             </h2>
         </div>
+</Fragment>
         
      );
 }
