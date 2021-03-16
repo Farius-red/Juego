@@ -2,7 +2,7 @@ import React from 'react';
 import {useForm} from 'react-hook-form';
 
 /*componentes*/
-import Footer from '/home/daniel/Documentos/Paginas/juego/src/componentes/Footer.js'
+
 
 const EditarUsuarios = ({adduser, regrabarusuario, updateUsuario}) => {
     
@@ -129,7 +129,7 @@ const EditarUsuarios = ({adduser, regrabarusuario, updateUsuario}) => {
             
          </div>
          <div className="card-footer">
-             <Footer/>
+             
          </div>
       </div>
 
